@@ -195,13 +195,13 @@
     .fi-btns{ margin-top:24px; display:flex; flex-wrap:wrap; justify-content:center; gap:12px; }
     .fi-tagline{ margin-top:10px; font-family:"Cormorant Garamond",serif; font-style:italic; font-size:1.35rem; color:var(--lila); }
     .fi-badge{ align-self:flex-start; margin-top:12px; padding:.3rem .8rem; border-radius:999px; font-size:.75rem; letter-spacing:.02em; color:var(--abismo); background:var(--oro-claro); }
-    .fi-infos{ margin-top:20px; display:grid; gap:14px; grid-template-columns:repeat(4,1fr); }
+    .fi-infos{ margin-top:20px; display:flex; flex-wrap:wrap; gap:14px; }
+    .fi-infos > div{ flex:1 1 170px; }
     .fi-infos > div{ padding:18px 20px; border-radius:18px; border:1px solid rgba(214,180,110,.28); background:rgba(255,255,255,.03); }
     .fi-infos dt{ font-size:.8rem; color:rgba(247,241,232,.55); }
     .fi-infos dd{ margin-top:6px; display:grid; gap:6px; font-size:.92rem; line-height:1.5; color:var(--perla); }
-    .fi-infos > div:nth-child(3), .fi-infos > div:nth-child(4){ grid-column:span 2; }
-    @media (max-width: 860px){ .fi-infos{ grid-template-columns:1fr 1fr; } }
-    @media (max-width: 560px){ .fi-infos{ grid-template-columns:1fr; } .fi-infos > div:nth-child(3), .fi-infos > div:nth-child(4){ grid-column:auto; } }
+    .fi-infos > div.fi-large{ flex-basis:100%; }
+        @media (max-width: 560px){ .fi-infos{ grid-template-columns:1fr; } }
     body.fiche-ouverte{ overflow:hidden; }
     @media (max-width: 860px){
       .fi-hero{ grid-template-columns:1fr; padding:64px 22px 28px; }
@@ -1001,8 +1001,9 @@
             <dl class="fi-infos">
               <div><dt>Format</dt><dd>En présentiel</dd></div>
               <div><dt>Durée</dt><dd>4 jours (2 week-ends)</dd></div>
-              <div><dt>Dates</dt><dd><span>Niveau 1 : 16 et 17 janvier 2027</span><span>Niveau 2 : 20 et 21 février 2027</span></dd></div>
-              <div><dt>Tarifs</dt><dd><span>Niveau 1 : 250 € (220 € en early bird jusqu&#x27;au 31 décembre 2026)</span><span>Niveau 2 : 250 € (220 € en early bird jusqu&#x27;au 31 décembre 2026)</span></dd></div>
+              <div><dt>Lieu</dt><dd>Barcelone</dd></div>
+              <div class="fi-large"><dt>Dates</dt><dd><span>Niveau 1 : 16 et 17 janvier 2027</span><span>Niveau 2 : 20 et 21 février 2027</span></dd></div>
+              <div class="fi-large"><dt>Tarifs</dt><dd><span>Niveau 1 : 250 € (220 € en early bird jusqu&#x27;au 31 décembre 2026)</span><span>Niveau 2 : 250 € (220 € en early bird jusqu&#x27;au 31 décembre 2026)</span></dd></div>
             </dl>
           </section>
           <section class="fi-cta">
@@ -1066,8 +1067,9 @@
             <dl class="fi-infos">
               <div><dt>Format</dt><dd>En présentiel</dd></div>
               <div><dt>Durée</dt><dd>2 jours (un week-end)</dd></div>
-              <div><dt>Dates</dt><dd><span>30 et 31 janvier 2027</span></dd></div>
-              <div><dt>Tarifs</dt><dd><span>250 € le week-end (220 € en early bird)</span></dd></div>
+              <div><dt>Lieu</dt><dd>Barcelone</dd></div>
+              <div class="fi-large"><dt>Dates</dt><dd><span>30 et 31 janvier 2027</span></dd></div>
+              <div class="fi-large"><dt>Tarifs</dt><dd><span>250 € le week-end (220 € en early bird)</span></dd></div>
             </dl>
           </section>
           <section class="fi-cta">
@@ -1150,8 +1152,8 @@
             <dl class="fi-infos">
               <div><dt>Format</dt><dd>En ligne</dd></div>
               <div><dt>Durée</dt><dd>1 jour par niveau</dd></div>
-              <div><dt>Dates</dt><dd><span>Niveau 1 : 19 décembre 2026, 9 janvier 2027 ou 23 janvier 2027</span><span>Niveau 2 : 20 février 2027</span><span>Niveau 3 : 13 mars 2027</span></dd></div>
-              <div><dt>Tarifs</dt><dd><span>Niveau 1 : 180 €</span><span>Niveau 2 : 250 €</span><span>Niveau 3 : 350 €</span><span>Pack 3 niveaux : 690 € (au lieu de 780 €)</span></dd></div>
+              <div class="fi-large"><dt>Dates</dt><dd><span>Niveau 1 : 19 décembre 2026, 9 janvier 2027 ou 23 janvier 2027</span><span>Niveau 2 : 20 février 2027</span><span>Niveau 3 : 13 mars 2027</span></dd></div>
+              <div class="fi-large"><dt>Tarifs</dt><dd><span>Niveau 1 : 180 €</span><span>Niveau 2 : 250 €</span><span>Niveau 3 : 350 €</span><span>Pack 3 niveaux : 690 € (au lieu de 780 €)</span></dd></div>
             </dl>
           </section>
           <section class="fi-cta">
@@ -2293,6 +2295,14 @@
 "30 et 31 janvier 2027": [
 "30 y 31 de enero de 2027",
 "30–31 January 2027"
+],
+"Lieu": [
+"Lugar",
+"Location"
+],
+"Barcelone": [
+"Barcelona",
+"Barcelona"
 ]
 };
     const UI = {

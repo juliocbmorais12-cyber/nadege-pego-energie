@@ -142,6 +142,7 @@
     .btn-paiement:hover{ background:rgba(99,91,255,.28); border-color:var(--oro); }
     .stripe-test{ position:fixed; left:16px; bottom:20px; z-index:50; display:flex; align-items:center; gap:.5rem; padding:.5rem .9rem; border-radius:999px;
       font-size:.72rem; letter-spacing:.04em; color:#1a0b2e; background:#f1dfae; box-shadow:0 8px 24px -8px rgba(0,0,0,.6); }
+    .stripe-test[hidden]{ display:none; }
 
     /* Fiches complètes des formations (fenêtre plein écran) */
     .fiche{ position:fixed; inset:0; z-index:70; background:rgba(8,4,14,.82); backdrop-filter:blur(8px); }
@@ -193,6 +194,11 @@
     .fi-cta h3{ font-size:2rem; font-weight:400; }
     .fi-cta p{ max-width:56ch; margin:12px auto 0; line-height:1.7; color:rgba(247,241,232,.78); }
     .fi-btns{ margin-top:24px; display:flex; flex-wrap:wrap; justify-content:center; gap:12px; }
+    .fi-tarif{ display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px 16px; padding:8px 0; border-bottom:1px solid rgba(214,180,110,.12); }
+    .fi-tarif:last-child{ border-bottom:0; }
+    .fi-payer{ display:inline-flex; align-items:center; gap:6px; padding:.45rem 1rem; border-radius:999px; font-size:.82rem; font-weight:600; color:#1a0b2e;
+      background:linear-gradient(135deg,#f1dfae,#d6b46e 45%,#b68c45); white-space:nowrap; }
+    .fi-payer:hover{ filter:brightness(1.07); }
     .fi-tagline{ margin-top:10px; font-family:"Cormorant Garamond",serif; font-style:italic; font-size:1.35rem; color:var(--lila); }
     .fi-badge{ align-self:flex-start; margin-top:12px; padding:.3rem .8rem; border-radius:999px; font-size:.75rem; letter-spacing:.02em; color:var(--abismo); background:var(--oro-claro); }
     .fi-infos{ margin-top:20px; display:flex; flex-wrap:wrap; gap:14px; }
@@ -525,7 +531,7 @@
               <div class="flex flex-1 flex-col rounded-[22px] border border-oro/30 bg-white/[0.03] p-6">
                 <div class="flex items-baseline justify-between gap-4">
                   <h4 class="font-display text-2xl" style="color:var(--oro-claro)">Une séance</h4>
-                  <span class="text-sm text-perla/60">Environ 60 minutes <!-- À REMPLACER --></span>
+                  <span class="text-right"><span class="block font-display text-2xl leading-none" style="color:var(--oro-claro)">75 €</span><span class="mt-1 block text-sm text-perla/60">Environ 60 minutes</span></span>
                 </div>
                 <div class="mt-5 flex flex-wrap gap-3">
                   <a href="#contact" data-servicio="Séance énergétique individuelle" class="btn-oro">Réserver ma séance</a>
@@ -535,7 +541,7 @@
               <div class="flex flex-1 flex-col rounded-[22px] border border-oro/30 bg-white/[0.03] p-6">
                 <div class="flex items-baseline justify-between gap-4">
                   <h4 class="font-display text-2xl" style="color:var(--oro-claro)">Accompagnement énergétique</h4>
-                  <span class="shrink-0 text-sm text-perla/60">5 séances</span>
+                  <span class="shrink-0 text-right"><span class="block font-display text-2xl leading-none" style="color:var(--oro-claro)">350 €</span><span class="mt-1 block text-sm text-perla/60">5 séances</span></span>
                 </div>
                 <p class="mt-3 text-sm leading-relaxed text-perla/70">Un parcours de 5 séances pour soutenir votre transformation, intégrer les changements et maintenir votre énergie en harmonie dans le temps.</p>
                 <ul class="mt-3 space-y-2 text-sm text-perla/70">
@@ -633,7 +639,7 @@
               </dl>
               <div class="mt-auto flex flex-wrap justify-center gap-3 !mt-8">
                 <a href="#fiche-qi-nei-tsang" data-fiche="fiche-qi-nei-tsang" class="btn-velo">+ d'infos</a>
-                <a href="#contact" data-servicio="Formation massage du ventre (Qi Nei Tsang)" class="btn-oro">Je veux me renseigner</a>
+                <a href="#fiche-qi-nei-tsang" data-fiche="fiche-qi-nei-tsang" data-cible="tarifs" class="btn-oro">S'inscrire</a>
               </div>
             </div>
           </article>
@@ -673,7 +679,7 @@
               </dl>
               <div class="mt-auto flex flex-wrap justify-center gap-3 !mt-8">
                 <a href="#fiche-massage-energetique" data-fiche="fiche-massage-energetique" class="btn-velo">+ d'infos</a>
-                <a href="#contact" data-servicio="Formation massage énergétique du corps" class="btn-oro">Je veux me renseigner</a>
+                <a href="#fiche-massage-energetique" data-fiche="fiche-massage-energetique" data-cible="tarifs" class="btn-oro">S'inscrire</a>
               </div>
             </div>
           </article>
@@ -712,7 +718,7 @@
               </dl>
               <div class="mt-auto flex flex-wrap justify-center gap-3 !mt-8">
                 <a href="#fiche-reiki" data-fiche="fiche-reiki" class="btn-velo">+ d'infos</a>
-                <a href="#contact" data-servicio="Formation Reiki Usui tibétain (niveaux 1 à 4)" class="btn-oro">Je veux me renseigner</a>
+                <a href="#fiche-reiki" data-fiche="fiche-reiki" data-cible="tarifs" class="btn-oro">S'inscrire</a>
               </div>
             </div>
           </article>
@@ -1003,7 +1009,7 @@
               <div><dt>Durée</dt><dd>4 jours (2 week-ends)</dd></div>
               <div><dt>Lieu</dt><dd>Barcelone</dd></div>
               <div class="fi-large"><dt>Dates</dt><dd><span>Niveau 1 : 16 et 17 janvier 2027</span><span>Niveau 2 : 20 et 21 février 2027</span></dd></div>
-              <div class="fi-large"><dt>Tarifs</dt><dd><span>Niveau 1 : 250 € (220 € en early bird jusqu&#x27;au 31 décembre 2026)</span><span>Niveau 2 : 250 € (220 € en early bird jusqu&#x27;au 31 décembre 2026)</span></dd></div>
+              <div class="fi-large"><dt>Tarifs</dt><dd><span class="fi-tarif"><span>Niveau 1 : 250 € (220 € en early bird jusqu&#x27;au 31 décembre 2026)</span><a href="#" data-stripe="qnt1" class="fi-payer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span>Payer</span></a></span><span class="fi-tarif"><span>Niveau 2 : 250 € (220 € en early bird jusqu&#x27;au 31 décembre 2026)</span><a href="#" data-stripe="qnt2" class="fi-payer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span>Payer</span></a></span></dd></div>
             </dl>
           </section>
           <section class="fi-cta">
@@ -1069,7 +1075,7 @@
               <div><dt>Durée</dt><dd>2 jours (un week-end)</dd></div>
               <div><dt>Lieu</dt><dd>Barcelone</dd></div>
               <div class="fi-large"><dt>Dates</dt><dd><span>30 et 31 janvier 2027</span></dd></div>
-              <div class="fi-large"><dt>Tarifs</dt><dd><span>250 € le week-end (220 € en early bird)</span></dd></div>
+              <div class="fi-large"><dt>Tarifs</dt><dd><span class="fi-tarif"><span>250 € le week-end (220 € en early bird)</span><a href="#" data-stripe="formation_massage" class="fi-payer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span>Payer</span></a></span></dd></div>
             </dl>
           </section>
           <section class="fi-cta">
@@ -1153,7 +1159,7 @@
               <div><dt>Format</dt><dd>En ligne</dd></div>
               <div><dt>Durée</dt><dd>1 jour par niveau</dd></div>
               <div class="fi-large"><dt>Dates</dt><dd><span>Niveau 1 : 19 décembre 2026, 9 janvier 2027 ou 23 janvier 2027</span><span>Niveau 2 : 20 février 2027</span><span>Niveau 3 : 13 mars 2027</span></dd></div>
-              <div class="fi-large"><dt>Tarifs</dt><dd><span>Niveau 1 : 180 €</span><span>Niveau 2 : 180 €</span><span>Niveau 3 : 250 €</span><span>Pack 3 niveaux : 520 € (au lieu de 610 €)</span></dd></div>
+              <div class="fi-large"><dt>Tarifs</dt><dd><span class="fi-tarif"><span>Niveau 1 : 180 €</span><a href="#" data-stripe="reiki1" class="fi-payer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span>Payer</span></a></span><span class="fi-tarif"><span>Niveau 2 : 180 €</span><a href="#" data-stripe="reiki2" class="fi-payer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span>Payer</span></a></span><span class="fi-tarif"><span>Niveau 3 : 250 €</span><a href="#" data-stripe="reiki3" class="fi-payer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span>Payer</span></a></span><span class="fi-tarif"><span>Pack 3 niveaux : 520 € (au lieu de 610 €)</span><a href="#" data-stripe="reikipack" class="fi-payer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span>Payer</span></a></span></dd></div>
             </dl>
           </section>
           <section class="fi-cta">
@@ -1184,18 +1190,21 @@
     // Numéro WhatsApp au format international, chiffres uniquement (sans "+" ni espaces)
     const WHATSAPP_NUMERO = '34637675785';
 
-    // PAIEMENT STRIPE
-    // 1. Dans Stripe (mode test activé), créez un « Lien de paiement » par prestation.
-    // 2. Collez chaque lien ci-dessous (en test, ils commencent par https://buy.stripe.com/test_…).
-    // 3. Pour passer en réel : remplacez les liens par ceux du mode live et mettez STRIPE_TEST à false.
-    const STRIPE_TEST = true;
+    // PAIEMENT STRIPE (compte réel) — liens de paiement créés le 17/11/2026
+    // Pour changer un prix : créez un nouveau lien dans Stripe et remplacez-le ici.
+    const STRIPE_TEST = false;
     const STRIPE_LIENS = {
-      seance: '',          // Séance énergétique individuelle
-      accompagnement: '',  // Accompagnement énergétique (5 séances)
-      // Massages : la réservation passe directement par le paiement.
-      // Vous pouvez aussi coller ici un lien Calendly avec paiement Stripe (créneau + paiement en une étape).
-      ventre: '',          // Massage du ventre (Qi Nei Tsang) — 50 min
-      corps: ''            // Massage énergétique du corps — 50 min
+      seance: 'https://buy.stripe.com/dRm8wJ7ZGeBz6wabWQd7q00',          // Séance énergétique individuelle — 75 €
+      accompagnement: 'https://buy.stripe.com/aFaaER0xeeBz6wa4uod7q01',  // Accompagnement énergétique (5 séances) — 350 €
+      ventre: 'https://buy.stripe.com/fZufZbfs83WVaMq3qkd7q02',          // Massage du ventre (Qi Nei Tsang) — 50 min — 75 €
+      corps: 'https://buy.stripe.com/9B67sF2Fm50Zf2G9OId7q03',           // Massage énergétique du corps — 50 min — 75 €
+      qnt1: 'https://buy.stripe.com/aFaaER0xedxv1bQ3qkd7q04',            // Formation Qi Nei Tsang niveau 1 — 220 € (early bird jusqu'au 31/12/2026)
+      qnt2: 'https://buy.stripe.com/bJe28l7ZG50Z7AebWQd7q05',            // Formation Qi Nei Tsang niveau 2 — 220 € (early bird jusqu'au 31/12/2026)
+      formation_massage: 'https://buy.stripe.com/cNi00d4Nu797aMqaSMd7q06', // Formation massage énergétique — 220 € (early bird)
+      reiki1: 'https://buy.stripe.com/5kQ14h5Ry1ON5s6e4Yd7q07',          // Formation Reiki niveau 1 — 180 € (choix de la date au paiement)
+      reiki2: 'https://buy.stripe.com/9B6bIV1BifFD3jYe4Yd7q08',          // Formation Reiki niveau 2 — 180 €
+      reiki3: 'https://buy.stripe.com/14AdR30xe9hfaMqgd6d7q09',          // Formation Reiki niveau 3 — 250 €
+      reikipack: 'https://buy.stripe.com/5kQ8wJ2Fm1ON5s65ysd7q0a'        // Formation Reiki pack 3 niveaux — 520 €
     };
 
 
@@ -2303,6 +2312,18 @@
 "Pack 3 niveaux : 520 € (au lieu de 610 €)": [
 "Pack 3 niveles: 520 € (en lugar de 610 €)",
 "3-level pack: €520 (instead of €610)"
+],
+"Payer": [
+"Pagar",
+"Pay"
+],
+"S'inscrire": [
+"Inscribirme",
+"Sign up"
+],
+"350 €": [
+"350 €",
+"€350"
 ]
 };
     const UI = {
@@ -2546,6 +2567,7 @@
       };
       document.querySelectorAll('[data-fiche]').forEach(a => a.addEventListener('click', ev => {
         ev.preventDefault(); declencheur = a; ouvrir(a.dataset.fiche, true);
+        if (a.dataset.cible === 'tarifs') { const f = document.getElementById(a.dataset.fiche), t = f.querySelector('.fi-infos'); if (t) f.querySelector('.fi-scroll').scrollTop = t.offsetTop - 120; }
       }));
       document.querySelectorAll('.fiche [data-fermer]').forEach(b => b.addEventListener('click', ev => {
         if (b.tagName === 'BUTTON') ev.preventDefault();

@@ -299,13 +299,6 @@
     .faq-item{ border-bottom:1px solid rgba(199,174,232,.15); }
 
     /* Formulaire */
-    .campo{
-      width:100%; background:rgba(255,255,255,.04); border:1px solid rgba(199,174,232,.2); border-radius:14px;
-      padding:.95rem 1.1rem; color:var(--perla); transition:border-color .3s, background .3s;
-    }
-    .campo::placeholder{ color:rgba(247,241,232,.4); }
-    .campo:focus{ outline:none; border-color:var(--oro); background:rgba(214,180,110,.06); }
-    select.campo option{ background:var(--abismo); }
 
     /* WhatsApp flottant */
     .wa-flotante{ position:fixed; right:20px; bottom:20px; z-index:50; width:60px; height:60px; border-radius:50%;
@@ -829,49 +822,15 @@
           </ul>
         </div>
 
-        <!-- Formulaire. Par défaut, il ouvre WhatsApp avec le message déjà rédigé.
-             Pour le recevoir par email : créez un formulaire sur Formspree (ou équivalent),
-             ajoutez action="https://formspree.io/f/VOTRE_ID" method="POST" et supprimez le JS d'envoi. -->
-        <form id="form-contacto" class="revelar rounded-[32px] border border-oro/20 p-7 sm:p-10" style="background:linear-gradient(160deg,rgba(26,11,46,.9),rgba(14,7,24,.85));backdrop-filter:blur(10px)" novalidate>
-          <div class="grid gap-5 sm:grid-cols-2">
-            <div class="sm:col-span-2">
-              <label for="nombre" class="mb-2 block text-sm text-perla/70">Prénom</label>
-              <input id="nombre" name="nombre" type="text" class="campo" placeholder="Comment vous appelez-vous ?" required autocomplete="given-name" />
-            </div>
-            <div>
-              <label for="email" class="mb-2 block text-sm text-perla/70">Email</label>
-              <input id="email" name="email" type="email" class="campo" placeholder="vous@email.com" required autocomplete="email" />
-            </div>
-            <div>
-              <label for="telefono" class="mb-2 block text-sm text-perla/70">WhatsApp <span class="text-perla/40">(facultatif)</span></label>
-              <input id="telefono" name="telefono" type="tel" class="campo" placeholder="+34 …" autocomplete="tel" />
-            </div>
-            <div class="sm:col-span-2">
-              <label for="servicio" class="mb-2 block text-sm text-perla/70">Le soin qui vous intéresse</label>
-              <select id="servicio" name="servicio" class="campo">
-                <option value="Séance énergétique individuelle">Séance énergétique individuelle</option>
-                <option value="Accompagnement énergétique">Accompagnement énergétique</option>
-                <option value="Massage du ventre (Qi Nei Tsang)">Massage du ventre (Qi Nei Tsang)</option>
-                <option value="Massage énergétique du corps">Massage énergétique du corps</option>
-                <option value="Formation massage du ventre (Qi Nei Tsang)">Formation massage du ventre (Qi Nei Tsang)</option>
-                <option value="Formation massage énergétique du corps">Formation massage énergétique du corps</option>
-                <option value="Formation Reiki Usui tibétain (niveaux 1 à 4)">Formation Reiki Usui tibétain (niveaux 1 à 4)</option>
-                <option value="Je ne sais pas encore, j'aimerais être guidée">Je ne sais pas encore, j'aimerais être guidée</option>
-              </select>
-            </div>
-            <div class="sm:col-span-2">
-              <label for="mensaje" class="mb-2 block text-sm text-perla/70">Que vivez-vous en ce moment ?</label>
-              <textarea id="mensaje" name="mensaje" rows="4" class="campo resize-none" placeholder="Racontez-moi avec vos mots ce que vous ressentez ou ce dont vous avez besoin…" required></textarea>
-            </div>
-            <label class="flex items-start gap-3 text-xs leading-relaxed text-perla/60 sm:col-span-2">
-              <input type="checkbox" id="privacidad" required class="mt-0.5 h-4 w-4 accent-[#d6b46e]" />
-              <span>J'accepte la <a href="#" class="underline hover:text-oro">politique de confidentialité</a> et le traitement de mes données pour répondre à ma demande.</span>
-            </label>
-          </div>
-          <p id="form-error" class="mt-5 hidden text-sm text-[#f0a8a8]" role="alert"></p>
-          <button type="submit" class="btn-oro mt-7 w-full text-base">Envoyer ma demande</button>
-          <p id="form-ok" class="mt-5 hidden text-center text-sm text-lila" role="status">Merci, votre message s'est ouvert dans WhatsApp. Je vous réponds très vite.</p>
-        </form>
+        <!-- Carte de contact : WhatsApp en un clic (message déjà rédigé) ou email -->
+        <div class="revelar flex flex-col justify-center rounded-[32px] border border-oro/20 p-8 text-center sm:p-12" style="background:linear-gradient(160deg,rgba(26,11,46,.9),rgba(14,7,24,.85));backdrop-filter:blur(10px)">
+          <svg class="mx-auto h-16 w-16 text-oro" aria-hidden="true"><use href="#flor" stroke-width="4"/></svg>
+          <h3 class="font-display mt-6 text-3xl font-light sm:text-4xl">Écrivez-moi sur WhatsApp</h3>
+          <p class="mx-auto mt-4 max-w-sm leading-relaxed text-perla/70">Votre message est déjà prêt : il vous suffit de l'envoyer.</p>
+          <a href="#" data-reserver="" class="btn-oro mx-auto mt-8 text-base">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Z"/></svg><span>Prendre rendez-vous</span></a>
+          <a href="mailto:nadege.pegorarotto@gmail.com" class="mt-5 text-sm text-perla/60 underline-offset-4 hover:text-oro hover:underline">ou par email</a>
+        </div>
       </div>
     </section>
   </main>
@@ -2321,6 +2280,18 @@
 "350 €": [
 "350 €",
 "€350"
+],
+"Écrivez-moi sur WhatsApp": [
+"Escríbeme por WhatsApp",
+"Message me on WhatsApp"
+],
+"Votre message est déjà prêt : il vous suffit de l'envoyer.": [
+"Tu mensaje ya está escrito: solo tienes que enviarlo.",
+"Your message is already written: just send it."
+],
+"ou par email": [
+"o por email",
+"or by email"
 ]
 };
     const UI = {
@@ -2331,14 +2302,6 @@
 "menuClose": "Fermer le menu",
 "dot": "Voir le témoignage {n}",
 "wa": "Bonjour Nadège, j'aimerais avoir des informations sur l'accompagnement énergétique.",
-"waHello": "Bonjour, je m'appelle {n}.",
-"waService": "Je suis intéressée par : {s}.",
-"waEmail": "Email : ",
-"waPhone": "Téléphone : ",
-"errName": "Indiquez votre prénom pour que je sache comment m'adresser à vous.",
-"errEmail": "Vérifiez votre email : il semble manquer une information.",
-"errMsg": "Dites-moi en quelques mots ce dont vous avez besoin.",
-"errPrivacy": "Pour envoyer votre message, acceptez la politique de confidentialité.",
 "stripeMissing": "Le paiement en ligne de cette prestation n'est pas encore configuré : ajoutez son lien Stripe dans STRIPE_LIENS.",
 "waRdv": "Bonjour Nadège, je souhaite prendre rendez-vous.",
 "waReserver": "Bonjour Nadège, je souhaite réserver : {s}.",
@@ -2351,14 +2314,6 @@
 "menuClose": "Cerrar menú",
 "dot": "Ver testimonio {n}",
 "wa": "Hola Nadège, me gustaría información sobre el acompañamiento energético.",
-"waHello": "Hola, soy {n}.",
-"waService": "Me interesa: {s}.",
-"waEmail": "Email: ",
-"waPhone": "Teléfono: ",
-"errName": "Escribe tu nombre para que sepa cómo dirigirme a ti.",
-"errEmail": "Revisa tu email: parece que falta algún dato.",
-"errMsg": "Cuéntame en pocas palabras qué necesitas.",
-"errPrivacy": "Para enviar el mensaje, acepta la política de privacidad.",
 "stripeMissing": "El pago online de este servicio aún no está configurado: añade su enlace de Stripe en STRIPE_LIENS.",
 "waRdv": "Hola Nadège, me gustaría reservar una cita.",
 "waReserver": "Hola Nadège, me gustaría reservar: {s}.",
@@ -2371,14 +2326,6 @@
 "menuClose": "Close menu",
 "dot": "Show testimonial {n}",
 "wa": "Hello Nadège, I'd like some information about your energy healing sessions.",
-"waHello": "Hello, my name is {n}.",
-"waService": "I'm interested in: {s}.",
-"waEmail": "Email: ",
-"waPhone": "Phone: ",
-"errName": "Enter your first name so I know how to address you.",
-"errEmail": "Check your email address: something seems to be missing.",
-"errMsg": "Tell me in a few words what you need.",
-"errPrivacy": "To send your message, please accept the privacy policy.",
 "stripeMissing": "Online payment for this service isn't set up yet: add its Stripe link in STRIPE_LIENS.",
 "waRdv": "Hello Nadège, I'd like to book an appointment.",
 "waReserver": "Hello Nadège, I'd like to book: {s}.",
@@ -2523,34 +2470,6 @@
       aller(0); relancer();
     })();
 
-    /* Les boutons de chaque soin présélectionnent ce soin dans le formulaire */
-    document.querySelectorAll('[data-servicio]').forEach(a => {
-      a.addEventListener('click', () => { document.getElementById('servicio').value = a.dataset.servicio; });
-    });
-
-    /* Formulaire de contact → WhatsApp avec le message déjà rédigé */
-    document.getElementById('form-contacto').addEventListener('submit', (e) => {
-      e.preventDefault();
-      const f = e.target;
-      const erreur = document.getElementById('form-error');
-      const prenom = f.nombre.value.trim(), email = f.email.value.trim(), message = f.mensaje.value.trim();
-
-      let probleme = '';
-      if (!prenom) probleme = T('errName');
-      else if (!/^\S+@\S+\.\S+$/.test(email)) probleme = T('errEmail');
-      else if (!message) probleme = T('errMsg');
-      else if (!f.privacidad.checked) probleme = T('errPrivacy');
-      if (probleme) { erreur.textContent = probleme; erreur.classList.remove('hidden'); return; }
-      erreur.classList.add('hidden');
-
-      const soin = f.servicio.options[f.servicio.selectedIndex].text;
-      const texte = `${T('waHello', { n: prenom })}\n${T('waService', { s: soin })}\n\n${message}\n\n${T('waEmail')}${email}${f.telefono.value ? `\n${T('waPhone')}${f.telefono.value}` : ''}`;
-      window.open(waLink(texte), '_blank', 'noopener');
-      document.getElementById('form-ok').classList.remove('hidden');
-      f.reset();
-    });
-
-
     /* Fiches des formations : ouverture dans la page, fermeture (bouton, Échap, retour arrière) */
     (() => {
       const photos = [...document.querySelectorAll('#formation article img')];
@@ -2625,7 +2544,6 @@
         document.querySelectorAll('#testi-puntos .punto').forEach(b => b.setAttribute('aria-label', T('dot', { n: b.dataset.n })));
         document.querySelectorAll('.lang-btn').forEach(b => b.setAttribute('aria-pressed', b.dataset.lang === LANGUE));
         menuBtn.setAttribute('aria-label', menuMovil.classList.contains('hidden') ? T('menuOpen') : T('menuClose'));
-        document.querySelectorAll('#form-error').forEach(m => m.classList.add('hidden'));
       };
 
       document.querySelectorAll('.lang-btn').forEach(b => b.addEventListener('click', () => {

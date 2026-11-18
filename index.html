@@ -253,8 +253,23 @@
     .lang-btn:hover{ color:var(--oro-claro); }
     .lang-btn[aria-pressed="true"]{ background:var(--oro); color:var(--abismo); }
 
-    /* En-tête mobile : le sélecteur et le bouton passent dans le menu sous 640 px */
-    @media (max-width: 639px){ .solo-sm-up{ display:none !important; } }
+    .logo-nom{ white-space:nowrap; }
+    .langues .globe{ margin:0 .2rem 0 .45rem; color:var(--oro); flex:none; }
+    /* En-tête mobile : le bouton « Prendre rendez-vous » passe dans le menu sous 640 px ;
+       le sélecteur de langue reste toujours visible en haut */
+    @media (max-width: 639px){
+      .solo-sm-up{ display:none !important; }
+      .langues-tete .lang-btn{ padding:.38rem .5rem; font-size:.7rem; }
+      .langues-tete .globe{ margin:0 .1rem 0 .35rem; width:13px; height:13px; }
+    }
+    @media (max-width: 370px){ .langues-tete .globe{ display:none; } }
+    @media (max-width: 520px){ #header .logo-sous{ display:none; } }
+    @media (max-width: 400px){ #header .logo-sous{ display:none; }
+      #header .logo-nom{ font-size:1.25rem; }
+      #header .tete-barre{ padding-left:14px; padding-right:14px; }
+      #header .tete-logo, #header .tete-droite{ gap:8px; }
+      #header .tete-logo svg{ width:32px; height:32px; }
+      #menu-btn{ width:40px; height:40px; } }
 
     /* Bouton de paiement Stripe */
     .btn-paiement{ display:inline-flex; align-items:center; gap:.5rem; padding:.85rem 1.4rem; border-radius:999px; font-size:.875rem; font-weight:500;
@@ -485,13 +500,13 @@
        1. EN-TÊTE FIXE
        ===================================================================== -->
   <header id="header" class="fixed inset-x-0 top-0 z-40">
-    <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
+    <div class="tete-barre mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
       <!-- Logo. À REMPLACER par <img src="img/logo.svg" alt="Nadège Pego"> si vous avez votre propre logo -->
-      <a href="#accueil" class="flex items-center gap-3" aria-label="Nadège Pego, retour à l'accueil">
+      <a href="#accueil" class="tete-logo flex items-center gap-3" aria-label="Nadège Pego, retour à l'accueil">
         <svg class="h-10 w-10 text-oro" aria-hidden="true"><use href="#flor" stroke-width="5"/></svg>
         <span class="leading-none">
-          <span class="font-display block text-2xl font-medium tracking-wide text-perla">Nadège Pego</span>
-          <span class="mt-1 block text-[10px] tracking-[0.25em] text-lila/80">accompagnement énergétique</span>
+          <span class="logo-nom font-display block text-2xl font-medium tracking-wide text-perla">Nadège Pego</span>
+          <span class="logo-sous mt-1 block text-[10px] tracking-[0.25em] text-lila/80">accompagnement énergétique</span>
         </span>
       </a>
 
@@ -503,9 +518,9 @@
         <a href="#contact" class="transition hover:text-oro">Contact</a>
       </nav>
 
-      <div class="flex items-center gap-3">
+      <div class="tete-droite flex items-center gap-3">
         <!-- Sélecteur de langue -->
-        <div class="langues solo-sm-up" role="group" aria-label="Choisir la langue"><button type="button" class="lang-btn" data-lang="fr" lang="fr">FR</button><button type="button" class="lang-btn" data-lang="es" lang="es">ES</button><button type="button" class="lang-btn" data-lang="en" lang="en">EN</button></div>
+        <div class="langues langues-tete" role="group" aria-label="Choisir la langue"><svg class="globe" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3Z"/></svg><button type="button" class="lang-btn" data-lang="fr" lang="fr">FR</button><button type="button" class="lang-btn" data-lang="es" lang="es">ES</button><button type="button" class="lang-btn" data-lang="en" lang="en">EN</button></div>
         <a href="#" data-reserver="" class="btn-oro solo-sm-up !px-6 !py-3 text-sm">Prendre rendez-vous</a>
         <button id="menu-btn" class="grid h-11 w-11 place-items-center rounded-full border border-oro/40 lg:hidden" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu-movil">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
@@ -522,7 +537,6 @@
         <a href="#temoignages" class="py-2">Témoignages</a>
         <a href="#contact" class="py-2">Contact</a>
         <a href="#" data-reserver="" class="btn-oro mt-4 font-sans text-base">Prendre rendez-vous</a>
-        <div class="langues mt-5 self-start font-sans" role="group" aria-label="Choisir la langue"><button type="button" class="lang-btn" data-lang="fr" lang="fr">FR</button><button type="button" class="lang-btn" data-lang="es" lang="es">ES</button><button type="button" class="lang-btn" data-lang="en" lang="en">EN</button></div>
       </nav>
     </div>
   </header>

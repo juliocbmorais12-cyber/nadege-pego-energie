@@ -255,6 +255,7 @@
     .lang-btn[aria-pressed="true"]{ background:var(--oro); color:var(--abismo); }
 
     .logo-nom{ white-space:nowrap; }
+    [data-jusqua][hidden], [data-apres][hidden]{ display:none !important; }
     .langues .globe{ margin:0 .2rem 0 .45rem; color:var(--oro); flex:none; }
     /* En-tête mobile : le bouton « Prendre rendez-vous » passe dans le menu sous 640 px ;
        le sélecteur de langue reste toujours visible en haut */
@@ -841,8 +842,8 @@
               <dl class="mt-7 space-y-2 border-t border-oro/20 pt-5 text-left text-sm">
                 <div class="flex justify-between gap-4"><dt class="text-perla/50">Format</dt><dd class="text-right text-perla">En ligne</dd></div>
                 <div class="flex justify-between gap-4"><dt class="text-perla/50">Durée</dt><dd class="text-right text-perla">1 jour par niveau</dd></div>
-                <div class="flex justify-between gap-4"><dt class="text-perla/50">Prochaine session</dt><dd class="text-right text-perla">19 décembre 2026</dd></div>
-                <div class="flex justify-between gap-4"><dt class="text-perla/50">Tarif</dt><dd class="text-right text-perla">Dès 180 €</dd></div>
+                <div class="flex justify-between gap-4"><dt class="text-perla/50">Prochaine session</dt><dd class="text-right text-perla"><span data-jusqua="2026-12-19">19 décembre 2026</span><span data-apres="2026-12-19" data-jusqua="2027-01-09" hidden>9 janvier 2027</span><span data-apres="2027-01-09" hidden>23 janvier 2027</span></dd></div>
+                <div class="flex justify-between gap-4"><dt class="text-perla/50">Tarif</dt><dd class="text-right text-perla"><span data-jusqua="2027-01-10">Dès 150 €</span><span data-apres="2027-01-10" hidden>Dès 180 €</span></dd></div>
               </dl>
               <div class="mt-auto flex flex-wrap justify-center gap-3 !mt-8">
                 <a href="#fiche-reiki" data-fiche="fiche-reiki" class="btn-velo">+ d'infos</a>
@@ -1249,7 +1250,7 @@
               <div><dt>Format</dt><dd>En ligne</dd></div>
               <div><dt>Durée</dt><dd>1 jour par niveau</dd></div>
               <div class="fi-large"><dt>Dates</dt><dd><span>Niveau 1 : 19 décembre 2026, 9 janvier 2027 ou 23 janvier 2027</span><span>Niveau 2 : 20 février 2027</span><span>Niveau 3 : 13 mars 2027</span></dd></div>
-              <div class="fi-large"><dt>Tarifs</dt><dd><span class="fi-tarif"><span>Niveau 1 : 180 €</span><a href="#" data-stripe="reiki1" class="fi-payer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span>Payer</span></a></span><span class="fi-tarif"><span>Niveau 2 : 180 €</span><a href="#" data-stripe="reiki2" class="fi-payer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span>Payer</span></a></span><span class="fi-tarif"><span>Niveau 3 : 250 €</span><a href="#" data-stripe="reiki3" class="fi-payer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span>Payer</span></a></span><span class="fi-tarif"><span>Pack 3 niveaux : 520 € (au lieu de 610 €)</span><a href="#" data-stripe="reikipack" class="fi-payer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span>Payer</span></a></span></dd></div>
+              <div class="fi-large"><dt>Tarifs</dt><dd><!-- Niveau 1 : une ligne par date. Early bird 150 € jusqu'à la date data-eb, puis 180 € ; la ligne disparaît après la session (data-jusqua). --><span class="fi-tarif" data-jusqua="2026-12-19"><span><span data-jusqua="2026-11-30">Niveau 1 · samedi 19 décembre : 150 € (early bird jusqu'au 30 novembre, puis 180 €)</span><span data-apres="2026-11-30" hidden>Niveau 1 · samedi 19 décembre : 180 €</span></span><a href="#" data-stripe="reiki1_1219" data-stripe-eb="reiki1_1219_eb" data-eb="2026-11-30" class="fi-payer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span>Payer</span></a></span><span class="fi-tarif" data-jusqua="2027-01-09"><span><span data-jusqua="2026-12-31">Niveau 1 · samedi 9 janvier : 150 € (early bird jusqu'au 31 décembre, puis 180 €)</span><span data-apres="2026-12-31" hidden>Niveau 1 · samedi 9 janvier : 180 €</span></span><a href="#" data-stripe="reiki1_0109" data-stripe-eb="reiki1_0109_eb" data-eb="2026-12-31" class="fi-payer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span>Payer</span></a></span><span class="fi-tarif" data-jusqua="2027-01-23"><span><span data-jusqua="2027-01-10">Niveau 1 · samedi 23 janvier : 150 € (early bird jusqu'au 10 janvier, puis 180 €)</span><span data-apres="2027-01-10" hidden>Niveau 1 · samedi 23 janvier : 180 €</span></span><a href="#" data-stripe="reiki1_0123" data-stripe-eb="reiki1_0123_eb" data-eb="2027-01-10" class="fi-payer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span>Payer</span></a></span><span class="fi-tarif"><span>Niveau 2 : 180 €</span><a href="#" data-stripe="reiki2" class="fi-payer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span>Payer</span></a></span><span class="fi-tarif"><span>Niveau 3 : 250 €</span><a href="#" data-stripe="reiki3" class="fi-payer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span>Payer</span></a></span><span class="fi-tarif"><span>Pack 3 niveaux : 520 € (au lieu de 610 €)</span><a href="#" data-stripe="reikipack" class="fi-payer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span>Payer</span></a></span></dd></div>
             </dl>
           </section>
           <section class="fi-cta">
@@ -1290,7 +1291,13 @@
       qnt1: 'https://buy.stripe.com/aFaaER0xedxv1bQ3qkd7q04',            // Formation Qi Nei Tsang niveau 1 — 220 € (early bird jusqu'au 31/12/2026)
       qnt2: 'https://buy.stripe.com/bJe28l7ZG50Z7AebWQd7q05',            // Formation Qi Nei Tsang niveau 2 — 220 € (early bird jusqu'au 31/12/2026)
       formation_massage: 'https://buy.stripe.com/cNi00d4Nu797aMqaSMd7q06', // Formation massage énergétique — 220 € (early bird)
-      reiki1: 'https://buy.stripe.com/5kQ14h5Ry1ON5s6e4Yd7q07',          // Formation Reiki niveau 1 — 180 € (choix de la date au paiement)
+      // Reiki niveau 1 : un lien par date — early bird 150 € (_eb) puis 180 €. Le site choisit le bon lien selon la date du jour.
+      reiki1_1219_eb: 'https://buy.stripe.com/aFa6oBgwcbpn7Ae0e8d7q0b', // 19/12/2026 — 150 € jusqu'au 30/11/2026
+      reiki1_1219: 'https://buy.stripe.com/dRmeV7dk0bpng6Kf92d7q0c',    // 19/12/2026 — 180 €
+      reiki1_0109_eb: 'https://buy.stripe.com/8x28wJ1Bictr3jYd0Ud7q0d', // 09/01/2027 — 150 € jusqu'au 31/12/2026
+      reiki1_0109: 'https://buy.stripe.com/bJebIV93KgJH4o2aSMd7q0e',    // 09/01/2027 — 180 €
+      reiki1_0123_eb: 'https://buy.stripe.com/7sY00dcfWgJH8Ei0e8d7q0f', // 23/01/2027 — 150 € jusqu'au 10/01/2027
+      reiki1_0123: 'https://buy.stripe.com/eVq8wJ0xe50ZcUy2mgd7q0g',    // 23/01/2027 — 180 €
       reiki2: 'https://buy.stripe.com/9B6bIV1BifFD3jYe4Yd7q08',          // Formation Reiki niveau 2 — 180 €
       reiki3: 'https://buy.stripe.com/14AdR30xe9hfaMqgd6d7q09',          // Formation Reiki niveau 3 — 250 €
       reikipack: 'https://buy.stripe.com/5kQ8wJ2Fm1ON5s65ysd7q0a'        // Formation Reiki pack 3 niveaux — 520 €
@@ -2346,10 +2353,6 @@
 "Nivel 3: 13 de marzo de 2027",
 "Level 3: 13 March 2027"
 ],
-"Niveau 1 : 180 €": [
-"Nivel 1: 180 €",
-"Level 1: €180"
-],
 "Niveau 1 · Les fondations": [
 "Nivel 1 · Los fundamentos",
 "Level 1 · The foundations"
@@ -2429,6 +2432,42 @@
 "Conditions de vente": [
 "Condiciones de venta",
 "Terms of sale"
+],
+"Niveau 1 · samedi 19 décembre : 150 € (early bird jusqu'au 30 novembre, puis 180 €)": [
+"Nivel 1 · sábado 19 de diciembre: 150 € (early bird hasta el 30 de noviembre, después 180 €)",
+"Level 1 · Saturday 19 December: €150 (early bird until 30 November, then €180)"
+],
+"Niveau 1 · samedi 19 décembre : 180 €": [
+"Nivel 1 · sábado 19 de diciembre: 180 €",
+"Level 1 · Saturday 19 December: €180"
+],
+"Niveau 1 · samedi 9 janvier : 150 € (early bird jusqu'au 31 décembre, puis 180 €)": [
+"Nivel 1 · sábado 9 de enero: 150 € (early bird hasta el 31 de diciembre, después 180 €)",
+"Level 1 · Saturday 9 January: €150 (early bird until 31 December, then €180)"
+],
+"Niveau 1 · samedi 9 janvier : 180 €": [
+"Nivel 1 · sábado 9 de enero: 180 €",
+"Level 1 · Saturday 9 January: €180"
+],
+"Niveau 1 · samedi 23 janvier : 150 € (early bird jusqu'au 10 janvier, puis 180 €)": [
+"Nivel 1 · sábado 23 de enero: 150 € (early bird hasta el 10 de enero, después 180 €)",
+"Level 1 · Saturday 23 January: €150 (early bird until 10 January, then €180)"
+],
+"Niveau 1 · samedi 23 janvier : 180 €": [
+"Nivel 1 · sábado 23 de enero: 180 €",
+"Level 1 · Saturday 23 January: €180"
+],
+"Dès 150 €": [
+"Desde 150 €",
+"From €150"
+],
+"9 janvier 2027": [
+"9 de enero de 2027",
+"9 January 2027"
+],
+"23 janvier 2027": [
+"23 de enero de 2027",
+"23 January 2027"
 ]
 };
     const UI = {
@@ -2475,8 +2514,17 @@
     document.querySelectorAll('[data-wa], [data-reserver]').forEach(a => { a.target = '_blank'; a.rel = 'noopener'; });
 
     document.getElementById('stripe-test').hidden = !STRIPE_TEST;
+    /* Dates automatiques (heure de Madrid) : data-jusqua = visible jusqu'à ce jour inclus,
+       data-apres = visible à partir du lendemain ; data-eb = fin de l'early bird du bouton Payer */
+    const finJour = d => new Date(d + 'T23:59:59+01:00');
+    const maintenant = new Date();
+    const passe = d => !!d && maintenant > finJour(d);
+    document.querySelectorAll('[data-jusqua], [data-apres]').forEach(e => {
+      e.hidden = passe(e.dataset.jusqua) || (!!e.dataset.apres && !passe(e.dataset.apres));
+    });
     document.querySelectorAll('[data-stripe]').forEach(a => {
-      const lien = STRIPE_LIENS[a.dataset.stripe];
+      const cle = a.dataset.stripeEb && !passe(a.dataset.eb) ? a.dataset.stripeEb : a.dataset.stripe;
+      const lien = STRIPE_LIENS[cle];
       if (lien) { a.href = lien; a.target = '_blank'; a.rel = 'noopener'; }
       else a.addEventListener('click', e => { e.preventDefault(); alert(T('stripeMissing')); });
     });
